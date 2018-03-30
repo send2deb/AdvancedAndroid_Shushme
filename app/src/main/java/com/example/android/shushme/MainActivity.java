@@ -152,8 +152,10 @@ public class MainActivity extends AppCompatActivity implements
                 Toast.makeText(this, toastMsg, Toast.LENGTH_LONG).show();
                 Log.d(TAG,toastMsg);
                 String id = place.getId();
+
                 ContentValues contentValues = new ContentValues();
-                getContentResolver().insert(PlaceContract.BASE_CONTENT_URI, contentValues);
+                contentValues.put(PlaceContract.PlaceEntry.COLUMN_PLACE_ID, id);
+                getContentResolver().insert(PlaceContract.PlaceEntry.CONTENT_URI, contentValues);
             }
         }
     }
